@@ -1,7 +1,6 @@
 class CompleteMe {
   constructor () {
     this.words = [];
-    // this.countWords = this.words.length;
   }
 
   insert(word) {
