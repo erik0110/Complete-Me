@@ -1,5 +1,3 @@
-const filterMe = (array) => {
-  return array
-}
+import CompleteMe from '../scripts/Complete-Me';
 
-export default filterMe
+export default CompleteMe;
