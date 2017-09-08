@@ -25,13 +25,13 @@ class CompleteMe {
     }
   }
 
+
   count() {
-    // this.countWords = this.words.length;
     return this.counter;
   }
 
-  // [ apple, apples, apparatus ]
-  suggest(string) { // 'app'
+
+  suggest(string) {
     let spreadString = [...string];
     let currentNode = this.root;
     let suggestArray = [];
@@ -40,11 +40,8 @@ class CompleteMe {
       currentNode = currentNode.children[spreadString[i]];
     }
 
-    // currentNode === appNode
-
     const searchMatch = (string, currentNode) => {
-      console.log(string)
-      let keys = Object.keys(currentNode.children);  // [a, l]
+      let keys = Object.keys(currentNode.children);
 
       for (let k = 0; k < keys.length; k++) {
         const child = currentNode.children[keys[k]];
@@ -56,11 +53,9 @@ class CompleteMe {
         searchMatch(newString, child);
       }
     }
-
     if (currentNode && currentNode.isWord) {
       suggestArray.push({name: string, selecCount: currentNode.children.selectCount})
     }
-
     if (currentNode) {
       searchMatch(string, currentNode);
     }
@@ -71,13 +66,12 @@ class CompleteMe {
       return obj.name;
     });
   }
-    // pull string index 0
-    // evaluate that against the nodes
-    // select that node
+
 
   select(word) {
     let wordArray = [...word];
     let currentNode = this.root;
+
     for (let i = 0; i < wordArray.length; i++) {
       currentNode = currentNode.children[wordArray[i]];
     }
@@ -87,7 +81,7 @@ class CompleteMe {
   populate(dictionary) {
     dictionary.forEach(word => {
       this.insert(word);
-    })
+    });
   }
 
 }
